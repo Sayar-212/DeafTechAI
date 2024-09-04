@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>DeafTech</title>
+    <link rel="stylesheet" href="styless.css">
+</head>
+<body>
+    <div class="top-bar">
+        <div class="left-options">
+            <div class="top-btn">Research</div>
+            <div class="top-btn">Product</div>
+            <div class="top-btn">Safety</div>
+            <div class="top-btn" id="signLanguages">Sign Languages</div>
+        </div>
+        <div class="right-logo">
+            <span class="deaf">Deaf</span><span class="tech">Tech</span>
+        </div>
+    </div>
+
+    <div class="container">
+        <!-- Tagline Section above the title -->
+        <div class="tagline-container">
+            <h2 class="tagline" id="tagline"></h2>
+        </div>
+        
+        <div class="title-container">
+            <h1 class="title">Deaf</h1>
+            <img src="DeafTech.png" alt="DeafTech Logo" class="logo">
+            <h1 class="title">Tech</h1>
+        </div>
+
+        <div class="buttons">
+            <button class="hover-btn" onclick="navigateTo('login.html')">Login/Sign Up</button>
+            <button class="hover-btn" onclick="navigateTo('contact.html')">Contacts/Helpdesk</button>
+            <button class="hover-btn" onclick="navigateTo('start.html')">Start</button>
+        </div>
+    </div>
+
+    <script>
+        function navigateTo(page) {
+            window.location.href = page;
+        }
+        document.getElementById('signLanguages').addEventListener('click', function() {
+            window.open('https://indiansignlanguage.org/', '_blank');
+        });
+    </script>
+        <script>
+        // Typing and Erasing Effect Script
+        const text = "Where Technology Speaks, and Silence Thrives.";
+        let index = 0;
+        let isErasing = false;
+        const speed = 100; // Typing speed in milliseconds
+        const eraseSpeed = 50; // Erasing speed in milliseconds
+        const pauseTime = 2000; // Pause time between typing and erasing
+
+        function typeWriter() {
+            const taglineElement = document.getElementById("tagline");
+
+            if (!isErasing && index < text.length) {
+                taglineElement.innerHTML += text.charAt(index);
+                index++;
+                setTimeout(typeWriter, speed);
+            } else if (isErasing && index > 0) {
+                taglineElement.innerHTML = text.substring(0, index - 1);
+                index--;
+                setTimeout(typeWriter, eraseSpeed);
+            } else if (!isErasing && index === text.length) {
+                setTimeout(() => { isErasing = true; typeWriter(); }, pauseTime);
+            } else if (isErasing && index === 0) {
+                isErasing = false;
+                setTimeout(typeWriter, speed);
+            }
+        }
+
+        // Start the typing effect when the page loads
+        window.onload = function() {
+            typeWriter();
+        };
+    </script>
+</body>
+</html>
