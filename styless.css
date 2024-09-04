@@ -1,0 +1,229 @@
+body, html {
+    margin: 0;
+    padding: 0;
+    width: 100%;
+    height: 100%;
+    background-color: #000000; 
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: #ffffff;
+}
+/* Top Bar */
+.top-bar {
+    width: 100%;
+    position: fixed;
+    top: 0;
+    left: 0;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background-color: #000000;
+    padding: 5px 7px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0);
+    z-index: 1000;
+}
+
+/* Left Options (Top Bar Buttons) */
+.left-options {
+    display: flex;
+    gap: 10px;
+}
+
+.top-btn {
+    background-color: transparent;
+    border: 2px solid transparent;
+    color: #c9d1d9;
+    padding: 10px 20px;
+    text-align: center;
+    text-decoration: none;
+    font-size: 16px;
+    border-radius: 8px;
+    cursor: pointer;
+    transition: all 0.4s ease;
+    position: relative;
+    overflow: hidden;
+}
+
+.top-btn:hover {
+    background-color: #0056b3;
+    color: white;
+    border: 2px solid #0056b3;
+}
+
+/* Main Content */
+.container {
+    text-align: center;
+    padding-top: 10px; /* Adjusted to create space below the fixed top bar */
+}
+
+.title-container {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-bottom: 50px;
+}
+
+.title {
+    font-size: 4em;
+    margin: 0 20px;
+    animation: fadeIn 2s ease-out forwards;
+}
+
+.logo {
+    max-width: 150px;
+    animation: float 6s ease-in-out infinite;
+}
+
+.buttons {
+    display: flex;
+    justify-content: center;
+    gap: 20px;
+}
+
+.hover-btn {
+    background-color: #161b22;
+    border: 2px solid #30363d;
+    color: #c9d1d9;
+    padding: 15px 30px;
+    text-align: center;
+    text-decoration: none;
+    font-size: 16px;
+    border-radius: 8px;
+    cursor: pointer;
+    transition: all 0.4s ease;
+    position: relative;
+    overflow: hidden;
+}
+
+.hover-btn::before {
+    content: '';
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width: 300%;
+    height: 300%;
+    background-color: rgba(0, 123, 255, 0.2);
+    transition: all 0.5s ease;
+    border-radius: 50%;
+    transform: translate(-50%, -50%) scale(0);
+    z-index: 0;
+}
+
+.hover-btn:hover::before {
+    transform: translate(-50%, -50%) scale(1);
+}
+
+.hover-btn:hover {
+    background-color: #0056b3;
+    color: white;
+    border: 2px solid #0056b3;
+}
+
+.hover-btn:hover span {
+    transform: scale(1.1);
+}
+
+.hover-btn span {
+    position: relative;
+    z-index: 1;
+}
+/* Right Logo (DeafTech Text) */
+.right-logo {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-right: 30px;
+    font-size: 24px;
+    font-weight: bold;
+}
+
+.deaf {
+    color: #0056b3; /* Blue color for Deaf */
+}
+
+.tech {
+    color: #ffffff; /* White color for Tech */
+}
+
+/* Ensure top-bar elements are properly aligned */
+.top-bar {
+    width: 100%;
+    position: fixed;
+    top: 0;
+    left: 0;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background-color: #000000;
+    padding: 10px 20px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0);
+    z-index: 1000;
+}
+
+.left-options {
+    display: flex;
+    gap: 10px;
+}
+/* Logo Image */
+.logo {
+    max-width: 150px;
+    animation: float 1s ease-in-out infinite;
+    filter: invert(1); /* Invert colors of the image */
+}
+/* Tagline Container */
+.tagline-container {
+    margin-bottom: 20px; /* Add space between the tagline and title */
+    text-align: center;
+}
+
+/* Tagline Styles */
+/* Tagline Container */
+.tagline-container {
+    margin-bottom: 20px; /* Add space between the tagline and title */
+    text-align: center;
+}
+
+/* Tagline Styles */
+.tagline {
+    font-size: 1.5em; /* Smaller font size */
+    font-family: 'Times New Roman', Times, serif; /* Set to Times New Roman */
+    font-weight: normal;
+    color: #ffffff;
+    white-space: nowrap; /* Prevent line breaks */
+    overflow: hidden; /* Hide the text initially */
+    border-right: 2px solid #ffffff; /* Simulate a cursor */
+    display: inline-block;
+    animation: blink-cursor 0.7s step-end infinite; /* Blinking cursor effect */
+}
+
+/* Blinking Cursor */
+@keyframes blink-cursor {
+    from {
+        border-right-color: #ffffff;
+    }
+    to {
+        border-right-color: transparent;
+    }
+}
+
+
+
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+    }
+    to {
+        opacity: 1;
+    }
+}
+
+@keyframes float {
+    0%, 100% {
+        transform: translateY(0);
+    }
+    50% {
+        transform: translateY(-20px);
+    }
+}

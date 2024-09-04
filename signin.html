@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sign Up - DeafTech</title>
+    <link rel="stylesheet" href="styles.css">
+    <style>
+        /* Additional styling for sign-up page */
+        body, html {
+            margin: 0;
+            padding: 0;
+            width: 100%;
+            height: 100%;
+            background-color: #000000;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+
+        .signup-container {
+            width: 100%;
+            max-width: 360px;
+            background-color: #ffffff;
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+            text-align: center;
+        }
+
+        .signup-container h1 {
+            margin-bottom: 20px;
+            color: #333;
+            font-size: 24px;
+            font-family: 'Times New Roman', Times, serif;
+        }
+
+        .signup-container input {
+            width: calc(100% - 22px);
+            padding: 12px;
+            margin-bottom: 15px;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+            background-color: #f9f9f9;
+            font-size: 16px;
+            outline: none;
+        }
+
+        .signup-container input:focus {
+            border-color: #0056b3;
+            box-shadow: 0 0 5px rgba(0, 86, 179, 0.5);
+        }
+
+        .signup-container button {
+            background-color: #0056b3;
+            border: none;
+            color: white;
+            padding: 12px 20px;
+            text-align: center;
+            text-decoration: none;
+            display: inline-block;
+            font-size: 16px;
+            border-radius: 4px;
+            cursor: pointer;
+            transition: background-color 0.3s ease;
+            width: 100%;
+        }
+
+        .signup-container button:hover {
+            background-color: #004494;
+        }
+
+        .signup-container .link {
+            margin-top: 15px;
+            color: #0056b3;
+            text-decoration: none;
+            font-size: 14px;
+        }
+
+        .signup-container .link:hover {
+            text-decoration: underline;
+        }
+    </style>
+</head>
+<body>
+    <div class="signup-container">
+        <h1>Sign Up</h1>
+        <input type="text" id="name" placeholder="Full Name" required>
+        <input type="email" id="email" placeholder="Email" required>
+        <input type="password" id="password" placeholder="Password" required>
+        <button onclick="signup()">Sign Up</button>
+        <a href="login.html" class="link">Already have an account? Log in</a>
+    </div>
+
+    <script>
+        function signup() {
+            const name = document.getElementById('name').value;
+            const email = document.getElementById('email').value;
+            const password = document.getElementById('password').value;
+
+            if (name && email && password) {
+                alert('Sign-up successful!');
+                // Store email and password in localStorage for comparison
+                localStorage.setItem('signupEmail', email);
+                localStorage.setItem('signupPassword', password);
+                // Redirect to login page
+                window.location.href = 'login.html';
+            } else {
+                alert('Please fill out all fields.');
+            }
+        }
+    </script>
+</body>
+</html>
